@@ -1,3 +1,5 @@
+package solving.sprout;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -5,9 +7,32 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class Main {
+public class Q0009_N1002 {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int caseNum = Integer.parseInt(br.readLine());
+		StringTokenizer st;
+		String input;
+		
+		for(int i = 0; i<caseNum; i++) {
+			input = br.readLine();
+			st = new StringTokenizer(input);
+			System.out.println(matchnum(
+					distsol(Integer.parseInt(st.nextToken()), 
+							Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())),
+					distsol(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), 
+							Integer.parseInt(st.nextToken()))
+					));
+		}
+		
+//		List<Integer[]> list1 = distsol(1, 1, 1);
+//		List<Integer[]> list2 = distsol(1, 1, 5);
+//		System.out.println(matchnum(list1, list2));
+	}
 	
-	public static List<Integer[]> distsolve(int x, int y, int r) {
+	
+	public static List<Integer[]> distsol(int x, int y, int r) {
 		List<Integer[]> result = new ArrayList<Integer[]>();
 		int x_f = r - Math.abs(x);
 		int x_b = r + Math.abs(x);
@@ -30,7 +55,6 @@ public class Main {
 				if(j*j > r*r) {
 					continue;
 				}
-				// 피타고라스 정리
 				if((x-j)*(x-j) + (y-i)*(y-i) == r*r) {
 					Integer[] buf = new Integer[2];
 					buf[0] = i;
@@ -58,21 +82,5 @@ public class Main {
 			}
 		}
 		return cnt;
-	}
-	
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int caseNum = 0;
-		caseNum = Integer.parseInt(br.readLine());
-		StringTokenizer st = null;
-		String input = null;
-		
-		for(int i = 0; i<caseNum; i++) {
-			input = br.readLine();
-			st = new StringTokenizer(input);
-			System.out.println(matchnum(
-					distsolve(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())),
-					distsolve(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()))));
-		}
 	}
 }
