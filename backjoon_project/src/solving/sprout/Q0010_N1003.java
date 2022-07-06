@@ -1,14 +1,15 @@
+package solving.sprout;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
+public class Q0010_N1003 {
 	public static int[] num = new int[2];
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int cnt = Integer.parseInt(br.readLine());
-		for(int i = 0; i<cnt; i++) {
+		while(true) {
 			fibonacci(Integer.parseInt(br.readLine()));
 			System.out.printf("%d %d\n", num[0], num[1]);
 		}
