@@ -1,11 +1,12 @@
+package solving.silver3;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main {
-	public static int[] num = new int[2];
-	
+public class Q0011_N1004 {
+
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer stk;
@@ -33,6 +34,14 @@ public class Main {
 
 	}
 
+	// case 1. 원 안에 두 점이 모두 있을 때 true
+	// case 2. 한 점은 원 안에 한 점은 원 밖에 있을 때 
+	// case 3. 원 밖에 두 점이 모두 있을 때
+	// case 2 일떄만 증가시키면됨
+	// 원 안에 존재한다 true, 원 밖에 존재한다 false
+	// xor 연산자 해서 true일때(case 2일때 증가)
+	
+	// 점의 위치가 원 밖에있는지 안에있는지
 	public static boolean pointloc(int x, int y, int xr, int yr, int r) {
 		if(Math.pow((x-xr), 2) + Math.pow((y-yr), 2) < Math.pow(r, 2)) {
 			return true;
@@ -46,4 +55,5 @@ public class Main {
 		}
 		return 0;
 	}
+	
 }
