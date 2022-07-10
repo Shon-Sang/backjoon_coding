@@ -1,25 +1,24 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+package solving.silver3;
 
-public class Main {
-	
+public class Q0014_N1063 {
+
 	private static char[] row = {'8' ,'7', '6', '5', '4', '3', '2', '1'};
 	private static char[] col = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
 	
-	public static void main(String[] args) throws IOException{
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer stk = new StringTokenizer(br.readLine());
-		int[] kingPos = posEncoder(stk.nextToken()); // (x,y)
-		int[] rockPos = posEncoder(stk.nextToken());
-		int cnt = Integer.parseInt(stk.nextToken());
+	public static void main(String[] args) {
+		int[] kingPos = posEncoder("A1"); // (x,y)
+		int[] rockPos = posEncoder("H8");
 		int[][] fPos;
+		//String[] inputMove = {"B", "L", "LB", "RB", "LT"};
+		String[] inputMove = {"T"};
+		//String[] inputMove = {"L","T","LB"};
 		
-		for(int i=0; i<cnt; i++) {
-			fPos = posMoving(br.readLine(), kingPos, rockPos);
-			kingPos = fPos[0];
-			rockPos = fPos[1];
+		for(int i=0; i<inputMove.length; i++) {
+			fPos = posMoving(inputMove[i], kingPos, rockPos);
+			if(fPos != null) {
+				kingPos = fPos[0];
+				rockPos = fPos[1];
+			}
 		}
 		
 		System.out.printf("%s\n%s",posDecoder(kingPos), posDecoder(rockPos));
@@ -99,6 +98,8 @@ public class Main {
 		return move;
 	}
 	
+	// 문제좀 잘 써줄것 아예 둘다 안움직이는줄알았음
+	// 파라미터변수를 복사하기 떄문에 void로는 안됨
 	public static int[][] posMoving(String inputPos, int[] kPos, int[] rPos) {
 		int[] movePos = movePos(inputPos);
 		
@@ -134,16 +135,41 @@ public class Main {
 				}
 			}
 			
-			if(check) {
+			if(check) { // 판 밖으로 안 나갔다면
 				result[1] = buf_r;
-			}else {
+			}else { // 판 밖으로 나갔다면 이경우는 킹도 다시 되돌려야함
 				result[0] = kPos;
 				result[1] = rPos;
 			}
 		}else {
 			result[1] = rPos;
 		}
+		//int[][] result = new int[2][2];
+//		result[0] = buf_k;
+//		result[1] = buf_r;
 		return result;
 
+//		int[] buf_k;
+//		int[] buf_r;
+//		
+//		buf_k = kPos.clone();
+//		for(int i = 0; i<buf_k.length; i++) {
+//			buf_k[i] += movePos[i];
+//			if(buf_k[i] > 7 || buf_k[i] < 0) {
+//				return null;
+//			}
+//		}
+//		
+//		buf_r = rPos.clone();
+//		for(int i = 0; i<buf_r.length; i++) {
+//			buf_r[i] += movePos[i];
+//			if(buf_r[i] > 7 || buf_r[i] < 0) {
+//				return null;
+//			}
+//		}
+//		int[][] result = new int[2][2];
+//		result[0] = buf_k;
+//		result[1] = buf_r;
+//		return result;
 	}
 }
