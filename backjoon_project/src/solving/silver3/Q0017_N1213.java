@@ -1,15 +1,14 @@
+package solving.silver3;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
-import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-public class Main {
-	
-	public static void main(String[] args) throws IOException{
+public class Q0017_N1213 {
+
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		TreeSet<Integer> arrIdx = new TreeSet<Integer>(); // 0~26에서 문자가 있는 인덱스만 넣을 변수
 		int[] aptNumArr = new int[26]; // 각 문자별 문자의 개수
@@ -37,6 +36,7 @@ public class Main {
 			nowNum = numArr[nowIdx]; // 해당 문자의 개수
 			nowCh = (char)(nowIdx+'A'); // 해당 문자
 			
+			// 문자의 개수가 홀수일떄 정의(문자개수가 홀수인 문자가 2개이상이면 끝)
 			if(nowNum%2 == 1) { // 문자개수가 홀수면
 				oddCnt+=1;
 				finalCh = nowCh;
@@ -48,7 +48,9 @@ public class Main {
 			for(int j = 0; j<nowNum/2 ; j++) { // 개수의 반만 추가
 				sb.append(nowCh);
 			}
+			
 		}
+		
 		// 반개의 문자를 가지고 다시 뒤집어서 붙이는 과정(홀수인 경우 1개더)
 		String buf;
 		if(finalCh != ' ') { // 마지막에 넣어야함
@@ -64,4 +66,5 @@ public class Main {
 		
 		return sb.toString();
 	}
+
 }
