@@ -1,16 +1,13 @@
+package solving.silver3;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
 import java.util.StringTokenizer;
-import java.util.TreeSet;
 
-public class Main {
-	
-	public static void main(String[] args) throws IOException{
+public class Q0018_N1269 {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer stk;
 		
@@ -22,12 +19,12 @@ public class Main {
 		for(int i =0; i<aArr.length; i++) {
 			aArr[i] = Integer.parseInt(stk.nextToken());
 		}
-		Arrays.sort(aArr);
+		
 		stk = new StringTokenizer(br.readLine());
 		for(int j =0; j<bArr.length; j++) {
 			bArr[j] = Integer.parseInt(stk.nextToken());
 		}
-		Arrays.sort(bArr);
+		
 		int count = 0;
 		int result;
 		for(int k = 0; k<aArr.length; k++) {
@@ -35,6 +32,8 @@ public class Main {
 		}
 		result = (aArr.length + bArr.length) - (count*2);
 		System.out.println(result);
+//		int[] a = {2, 10, 33, 54, 223, 4524, 5555, 9384, 9992};
+//		System.out.println(myBSearch(2000, a));
 	}
 	
 	public static int myBSearch(int target, int[] arr) {
