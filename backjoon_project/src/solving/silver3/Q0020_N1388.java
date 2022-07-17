@@ -1,15 +1,15 @@
+package solving.silver3;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.StringTokenizer;
 
-public class Main {
-	
+public class Q0020_N1388 {
+
 	private static int allCnt;
-	
-	public static void main(String[] args) throws IOException{
+	// 1개짜리 안세서 답안나오는거였음 ㅡ;ㅡ;ㅡ;ㅡ;ㅡ;ㅡ;
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer stk = new StringTokenizer(br.readLine());
 		int row = Integer.parseInt(stk.nextToken());
@@ -62,5 +62,6 @@ public class Main {
 			}
 		}
 	}
+	
 
 }
