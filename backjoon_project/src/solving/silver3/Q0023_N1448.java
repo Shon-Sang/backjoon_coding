@@ -1,12 +1,14 @@
+package solving.silver3;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class Main {
-	
-	public static void main(String[] args) throws IOException{
-BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+public class Q0023_N1448 {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		int[] sideArr = new int[Integer.parseInt(br.readLine())];
 		for(int i = 0; i<sideArr.length; i++) {
@@ -14,6 +16,9 @@ BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		}
 		Arrays.sort(sideArr); // 오름차순 정렬
 		reserveSort(sideArr); // 내림차순 정렬
+//		for(int i : sideArr) {
+//			System.out.printf(i + " ");
+//		}
 		System.out.println(makeTriMax(sideArr));
 	}
 	
@@ -25,6 +30,7 @@ BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			}
 			idx += 1;
 		}
+		
 		return -1;
 	}
 	
